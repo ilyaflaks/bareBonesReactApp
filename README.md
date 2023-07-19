@@ -27,12 +27,14 @@ The idea is that almost every app requires authentication. With this starter cod
 ## How to run
 
 - Install [Node.js](https://nodejs.org/en) if you don't already have it
-- Install [https://www.postman.com/](https://www.postman.com/) if you don't already have it
+- Install [Postman](https://www.postman.com/) if you don't already have it
 - Install [XAMPP](https://www.apachefriends.org/download.html)
 - Clone this repo and run '**npm i**' in both **server** and **client** folders
 - Run XAMPP, select the **Manage Servers** tab and start both **MySQL Database** and **Apache Web Server**
 - In your browser go to [http://localhost/phpmyadmin](http://localhost/phpmyadmin) to open the admin panel
+
   <img src="xampp.png" width=400px/>
+
 - **NOTE:** if MySQL Database is not starting, it's probably because something else is running MySQL on your machine, such as MySQL Workbench. Open your Activity Monitor / Task Manager, close any tasks under the name "mysql" and try again
 - **NOTE:** if http://localhost/phpmyadmin is not working it's probably because you did not run Apache Web Server. I do this all the time!
 - From the terminal cd into the **server** folder and run '**touch .env**' and add the following to the newly created **.env** file:
