@@ -54,14 +54,15 @@ NODE_ENV=dev
 - From the terminal cd into the **server** folder and run '**npm start**'
 - In **app.js** you will find some commented out code under ////ONLY RUN THIS ONCE AND THEN DELETE. Uncomment this code
 - In Postman make a GET request to localhost:3030/createdb and then another GET request to localhost:3030/createregistration. This will create the database for your project and the table to store user info
-- Alternatively, you can create the database and the table in phpMyAdmin with the following structure:
+- Alternatively, you can create the database and the table manually in phpMyAdmin with the following structure:
   <img src="user-table.png"/>
+  It might be faster to run the query **CREATE TABLE registration(id int AUTO_INCREMENT, userName VARCHAR(50), email VARCHAR(50), password VARCHAR(150),dateRegistered DATE DEFAULT (CURRENT_DATE()), PRIMARY KEY(id), CONSTRAINT unique_email UNIQUE (email));** in the SQL tab of the **testdb**. If you already have a "testdb" on your machine for another project, feel free to call the database something else, but make sure you update **MYSQL_DB** in .env with that name
 - You can now delete the code that was previously commented out
 - If all worked out fine, you should be able to go to [http://localhost:3030/home](http://localhost:3030/home) in your browser and see the very basic React app
 
-## Credit Where Credit is Due:
+## Credit Where Credit is Due
 
-- Most of the backend code comes from the [Build RESTful APIs with Node.js express and MySQL | Authentication with JWT](https://www.youtube.com/watch?v=WfCJ3sHnLBM&t=97s) tutorial by Technical Babaji. It's the most helpful tutorial on Node.js I've ever seen. Watch the video and other videos related to this RESTful API
-- The front end borrows heavily from [React Persistent User Login Authentication with JWT Tokens](https://www.youtube.com/watch?v=27KeYk-5vJw) by Dave Gray. I also recommend watching the rest of the videos in the series. One key difference is that my project does not store the JWT in the context
-- [Understanding Cookies and Implementing them in Node.js](https://www.section.io/engineering-education/what-are-cookies-nodejs/) really helped me figure out how to create and delete httpOnly, secure cookies. You will not believe how many articles I've read that did not have the actual code. One note, however, make sure you set **maxAge** to something more than 5000. That value is in milliseconds!
+- Most of the backend code comes from the [Build RESTful APIs with Node.js express and MySQL | Authentication with JWT](https://www.youtube.com/watch?v=WfCJ3sHnLBM&t=97s) tutorial by Technical Babaji. It's the most helpful tutorial on Node.js I've ever seen. I can't recomment this video and other videos related to this RESTful API enough!
+- The front end borrows heavily from [React Persistent User Login Authentication with JWT Tokens](https://www.youtube.com/watch?v=27KeYk-5vJw) by Dave Gray. I also recommend watching the rest of the videos in the series and upgrade your UI accordingly. One key difference is that my project does not store the JWT in the context.
+- [Understanding Cookies and Implementing them in Node.js](https://www.section.io/engineering-education/what-are-cookies-nodejs/) really helped me figure out how to create and delete httpOnly, secure cookies. You will not believe how many articles I've read that did not have any actual JavaScript code. One note, however, make sure you set **maxAge** to something more than 5000. That value is in milliseconds!
 - [Deploy a React app with Node.js](https://medium.com/@achillesmoraites/serve-a-react-app-with-express-server-c5986769bac) - pretty much the exact steps I followed to make the Node application serve up the React front end on the same port.
